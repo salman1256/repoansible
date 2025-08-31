@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-app:latest ./app'
+                bat 'docker build -t my-app:latest ./app'
             }
         }
 
         stage('Run Ansible Playbook') {
             steps {
-                sh 'ansible-playbook playbook.yml'
+                bat 'ansible-playbook playbook.yml'
             }
         }
     }
