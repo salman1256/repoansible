@@ -14,10 +14,11 @@ pipeline {
             }
         }
 
-        stage('Run Ansible Playbook') {
-            steps {
-                bat 'ansible-playbook playbook.yml'
-            }
+        stage('Run Container') {
+    steps {
+        bat 'docker run -d -p 8080:80 --name myapp my-app:latest'
         }
+        }
+
     }
 }
