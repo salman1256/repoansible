@@ -14,12 +14,12 @@ pipeline {
             }
         }
 
-       stage('Run Container') {
-        steps {
-            bat '''
-            docker rm -f myapp || true
-            docker run -d -p 8080:80 --name myapp my-app:latest
-            '''
+      stage('Run Container') {
+            steps {
+                bat '''
+                docker rm -f myapp || true
+                docker run -d -P --name myapp my-app:latest
+                '''
             }
         }
 
